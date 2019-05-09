@@ -1,0 +1,7 @@
+
+*.ide-wal
+*.vs/
+packages/
+
+In-Play\.Api\.Client/obj/
+In-Play\.Api\.Client/bin/
