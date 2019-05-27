@@ -29,7 +29,20 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>In-Play API key.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FileCache, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FileCache.2.0.1\lib\FileCache.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -40,6 +53,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
@@ -51,17 +65,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clients\BaseClient.cs" />
-    <Compile Include="Clients\MLB\MLBExchangesClient.cs" />
+    <Compile Include="Clients\B2BClients\BaseClient.cs" />
+    <Compile Include="Clients\B2BClients\MLB\MLBExchangesClient.cs" />
+    <Compile Include="Cache\ICache.cs" />
+    <Compile Include="Cache\InMemoryCache.cs" />
+    <Compile Include="Clients\ClientCredentialsGrantTokenClient.cs" />
+    <Compile Include="Clients\CustomGrantTokenClient.cs" />
+    <Compile Include="Clients\DirectClients\AccountClient.cs" />
+    <Compile Include="Clients\DirectClients\ExchangeClient.cs" />
+    <Compile Include="Clients\ResourceScopedAccessGrantParameters.cs" />
+    <Compile Include="Clients\ResourceScopedAccessGrantTokenClient.cs" />
+    <Compile Include="Credentials\ClientSecretCredentials.cs" />
+    <Compile Include="Credentials\Configuration.cs" />
+    <Compile Include="Credentials\IClientCredentials.cs" />
+    <Compile Include="Clients\DirectClients\BaseClient.cs" />
+    <Compile Include="Internals\MemoryCacheExtensions.cs" />
+    <Compile Include="Internals\ScopeHelper.cs" />
+    <Compile Include="Internals\StringHashExtensions.cs" />
+    <Compile Include="Internals\TokenEndpointHttpClient.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\ClientCredentials.cs" />
+    <Compile Include="Models\Direct\CountriesModel.cs" />
+    <Compile Include="Models\Direct\SymbolExchanges.cs" />
+    <Compile Include="Models\Direct\UserDataModel.cs" />
     <Compile Include="Models\MLB\Exchange.cs" />
     <Compile Include="Models\MLB\Lineup.cs" />
     <Compile Include="Models\Symbol.cs" />
+    <Compile Include="Models\Types.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TokenEndpointException.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Credentials\Configuration.config" />
+    <None Include="In-Play API key.pfx" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Logo.ico" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

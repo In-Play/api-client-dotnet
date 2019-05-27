@@ -5,3 +5,7 @@ packages/
 
 In-Play\.Api\.Client/obj/
 In-Play\.Api\.Client/bin/
+
+In-Play\.Api\.Client/Cache/
+
+In-Play\.Api\.Client\.1\.0\.0\.nupkg

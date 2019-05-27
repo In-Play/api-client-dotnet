@@ -1,0 +1,1 @@
+nuget pack "In-Play.Api.Client\In-Play.Api.Client.csproj"

@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("In-Play.Api.Client")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription(".net Client for In-Play service API")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("In-Play")]
 [assembly: AssemblyProduct("In-Play.Api.Client")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]

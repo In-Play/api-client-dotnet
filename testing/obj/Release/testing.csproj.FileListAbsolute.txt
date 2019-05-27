@@ -1,0 +1,13 @@
+C:\altbet\InPlayAPIClient\api-client-dotnet\testing\bin\Release\testing.exe.config
+C:\altbet\InPlayAPIClient\api-client-dotnet\testing\bin\Release\testing.exe
+C:\altbet\InPlayAPIClient\api-client-dotnet\testing\bin\Release\testing.pdb
+C:\altbet\InPlayAPIClient\api-client-dotnet\testing\bin\Release\In-Play.Api.Client.dll
+C:\altbet\InPlayAPIClient\api-client-dotnet\testing\bin\Release\NLog.dll
+C:\altbet\InPlayAPIClient\api-client-dotnet\testing\bin\Release\Newtonsoft.Json.dll
+C:\altbet\InPlayAPIClient\api-client-dotnet\testing\bin\Release\In-Play.Api.Client.pdb
+C:\altbet\InPlayAPIClient\api-client-dotnet\testing\bin\Release\NLog.xml
+C:\altbet\InPlayAPIClient\api-client-dotnet\testing\bin\Release\Newtonsoft.Json.xml
+C:\altbet\InPlayAPIClient\api-client-dotnet\testing\obj\Release\testing.csprojResolveAssemblyReference.cache
+C:\altbet\InPlayAPIClient\api-client-dotnet\testing\obj\Release\testing.csproj.CoreCompileInputs.cache
+C:\altbet\InPlayAPIClient\api-client-dotnet\testing\obj\Release\testing.exe
+C:\altbet\InPlayAPIClient\api-client-dotnet\testing\obj\Release\testing.pdb
