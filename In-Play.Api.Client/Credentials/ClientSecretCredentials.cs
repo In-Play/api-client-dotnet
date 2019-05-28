@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using In_Play.Api.Client.Internals;
 
@@ -16,15 +17,14 @@ namespace In_Play.Api.Client.Credentials
         /// <summary>
         /// Create new ClientSecretCredentials
         /// </summary>
-        /// <param name="clientId">OAuth2 "client_id"</param>
-        /// <param name="clientSecret">OAuth2 "client_secret"</param>
-        public ClientSecretCredentials(string clientId, string clientSecret, string userName, string password)
+       
+        public ClientSecretCredentials( string userName, string password)
         {
-            _clientId = clientId;
-            _clientSecret = clientSecret;
+            _clientId = "DesktopApp";
+            _clientSecret = "in-play";
             _userName = userName;
             _password = password;
-            CredentialThumbprint = (clientId + clientSecret).Sha1Hex();
+//            CredentialThumbprint = (clientId + clientSecret).Sha1Hex();
         }
 
         public List<KeyValuePair<string, string>> PostParams => new List<KeyValuePair<string, string>>()

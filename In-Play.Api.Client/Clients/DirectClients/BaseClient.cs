@@ -48,8 +48,6 @@ namespace In_Play.Api.Client.Clients.DirectClients
             Encoding = new UTF8Encoding();
 
             var _tokenClient = new ClientCredentialsGrantTokenClient($"{Scheme}{Host}/token" , new ClientSecretCredentials(
-                    credentials.ClientId,
-                    credentials.ClientSecret,
                     credentials.UserName, 
                     credentials.Password
                 ));

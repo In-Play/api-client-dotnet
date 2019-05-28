@@ -16,39 +16,33 @@ namespace testing
         static void Main(string[] args)
         {
 
+            //------------ sample B2B Client : 
+            var b2bClient = new MLBExchangesClient("d3cb4727cac14176ba67d97805f15588");
+            var exchanges = b2bClient.GetExchanges().Result.ToList();
 
-            //            var client = new MLBExchangesClient("d3cb4727cac14176ba67d97805f15588");
-            //            var res = client.GetExchanges().Result;
 
-
-            var parameters = new List<KeyValuePair<string, string>>
+            foreach (var exchange in exchanges)
             {
-                new KeyValuePair<string, string>("date", "date")
-            };
+                Console.WriteLine($"{exchange.FullName} - {exchange.EventId}");
+            }
 
+           // Console.ReadKey();
 
+            //--------------sample Direct Client-------------------------
 
-            //            var directClient1 = new AccountClient(Configuration.GetCredentials()).GetCountries().Result;
-
+            
             var directAccountClient= new AccountClient(new ClientCredentials()
             {
                 UserName = "user",
-                Password = "admin1234",
-                ClientSecret = "in-play",
-                ClientId = "DesktopApp"
-            });//.GetCountries().Result;
+                Password = "11111111",
+            });
 
-            var directExchangeClient = new ExchangeClient(Configuration.GetCredentials());
-
-            var re = directAccountClient.GetUserInfo().Result;
-            var exchanges = directExchangeClient.GetExchanges().Result;
-
-//            Console.WriteLine("result:" + res.FirstOrDefault().StatusExchange);
-            Console.WriteLine("First country name:" + re);
+            //or you can use 'get credentials':
+            //var directAccountClient = new AccountClient(Configuration.GetCredentials());
 
 
-
-
+            Console.WriteLine($"{directAccountClient.GetUserInfo().Result.UserInfo.UserName}");
+            
             Console.ReadKey();
 
 

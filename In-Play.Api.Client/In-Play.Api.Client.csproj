@@ -87,6 +87,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\ClientCredentials.cs" />
     <Compile Include="Models\Direct\CountriesModel.cs" />
+    <Compile Include="Models\Direct\Order.cs" />
     <Compile Include="Models\Direct\SymbolExchanges.cs" />
     <Compile Include="Models\Direct\UserDataModel.cs" />
     <Compile Include="Models\MLB\Exchange.cs" />
