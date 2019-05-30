@@ -21,7 +21,7 @@ PM> Install-Package In-Play.Api.Client
 
 ## Authentication for B2B API services
 
-You can find your api keys in the [In-Play Developer Portal](developer.in-play.io. See [Usage](#Usage) for implementation details.
+You can find your api keys in the [In-Play Developer Portal](developer.in-play.io) See [Usage](#Usage) for implementation details.
 
 ## Authentication for Direct API services
 
@@ -43,7 +43,7 @@ foreach (var exchange in exchanges)
 
 ## Usage Direct API services
 In this sample client we authenticate the `AccountClient` with main personal credentials (just regular credentials on in-play.io). And get User info.
-
+```cs
 var directAccountClient= new AccountClient(new ClientCredentials()
                         {
                             UserName = "username",
@@ -53,6 +53,7 @@ var directAccountClient= new AccountClient(new ClientCredentials()
 
 //write `UserInfo` data to console: 
 Console.WriteLine($"{directAccountClient.GetUserInfo().Result.UserInfo.UserName}");
+```
 
 ## Documentation
 * [In-play Developer Portal](developer.in-play.io)
