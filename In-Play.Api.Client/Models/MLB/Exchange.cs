@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace In_Play.Api.Client.Models.MLB
 {
@@ -18,7 +15,7 @@ namespace In_Play.Api.Client.Models.MLB
         public DateTime StartDateEvent { get; set; }
         public DateTime? EndDateEvent { get; set; }
         public Category Category { get; set; }
-        public String TypeEvent { get; set; }
+        public string TypeEvent { get; set; }
         public decimal? HomePoints { get; set; }
         public decimal? AwayPoints { get; set; }
         public decimal? HomeScore { get; set; }

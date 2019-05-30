@@ -3,32 +3,12 @@
 namespace In_Play.Api.Client.Clients
 {
     /// <summary>
-    /// OAuth2 Token endpoint parameters for "urn:scalepoint:params:oauth:grant-type:resource-scoped-access" grant
+    ///     OAuth2 Token endpoint parameters for "urn:scalepoint:params:oauth:grant-type:resource-scoped-access" grant
     /// </summary>
     public class ResourceScopedAccessGrantParameters
     {
         /// <summary>
-        /// OAuth2 scope
-        /// </summary>
-        public string Scope { get; }
-
-        /// <summary>
-        /// Specific resource identifier
-        /// </summary>
-        public string Resource { get; }
-
-        /// <summary>
-        /// Resource tenant identifier
-        /// </summary>
-        public string TenantId { get; }
-
-        /// <summary>
-        /// Original authentication method references
-        /// </summary>
-        public IList<string> Amr { get; }
-
-        /// <summary>
-        /// Creates new ResourceScopedAccessGrantParameters
+        ///     Creates new ResourceScopedAccessGrantParameters
         /// </summary>
         /// <param name="scope">OAuth2 scope</param>
         /// <param name="resource">Specific resource identifier</param>
@@ -39,7 +19,7 @@ namespace In_Play.Api.Client.Clients
         }
 
         /// <summary>
-        /// Creates new ResourceScopedAccessGrantParameters
+        ///     Creates new ResourceScopedAccessGrantParameters
         /// </summary>
         /// <param name="scope">OAuth2 scope</param>
         /// <param name="resource">Specific resource identifier</param>
@@ -54,10 +34,30 @@ namespace In_Play.Api.Client.Clients
         }
 
         /// <summary>
-        /// String-joined authentication method references
+        ///     OAuth2 scope
+        /// </summary>
+        public string Scope { get; }
+
+        /// <summary>
+        ///     Specific resource identifier
+        /// </summary>
+        public string Resource { get; }
+
+        /// <summary>
+        ///     Resource tenant identifier
+        /// </summary>
+        public string TenantId { get; }
+
+        /// <summary>
+        ///     Original authentication method references
+        /// </summary>
+        public IList<string> Amr { get; }
+
+        /// <summary>
+        ///     String-joined authentication method references
         /// </summary>
         public string AmrString =>
-            (Amr == null || Amr.Count < 1)
+            Amr == null || Amr.Count < 1
                 ? null
                 : string.Join(" ", Amr);
     }

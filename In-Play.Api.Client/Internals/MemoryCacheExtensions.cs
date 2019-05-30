@@ -3,18 +3,17 @@ using System.Runtime.Caching;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Scalepoint.OAuth.TokenClient.Internals
+namespace In_Play.Api.Client.Internals
 {
     internal static class MemoryCacheExtensions
     {
-        public static async Task<T> GetOrCreateAsync<T>(this MemoryCache cache, string key, Func<CancellationToken, Task<Tuple<T, TimeSpan>>> factory, CancellationToken token = default(CancellationToken))
+        public static async Task<T> GetOrCreateAsync<T>(this MemoryCache cache, string key,
+            Func<CancellationToken, Task<Tuple<T, TimeSpan>>> factory,
+            CancellationToken token = default(CancellationToken))
         {
-            var value = (T)cache.Get(key);
+            var value = (T) cache.Get(key);
 
-            if (value != null)
-            {
-                return value;
-            }
+            if (value != null) return value;
 
             var result = await factory(token).ConfigureAwait(false);
 

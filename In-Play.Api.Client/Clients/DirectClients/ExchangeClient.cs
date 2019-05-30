@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using In_Play.Api.Client.Models;
@@ -13,12 +10,11 @@ namespace In_Play.Api.Client.Clients.DirectClients
     {
         public ExchangeClient(ClientCredentials credentials) : base(credentials)
         {
-            
         }
 
         public Task<SymbolExchanges> GetExchanges()
         {
-            return Task.Run<SymbolExchanges>(() => base.Get<SymbolExchanges>("/home/GetExchanges"));
+            return Task.Run(() => Get<SymbolExchanges>("/home/GetExchanges"));
         }
 
 
@@ -29,10 +25,10 @@ namespace In_Play.Api.Client.Clients.DirectClients
                 new KeyValuePair<string, string>("symbolId", req.SymbolId),
                 new KeyValuePair<string, string>("Quantity", req.Quantity.ToString()),
                 new KeyValuePair<string, string>("LimitPrice", req.LimitPrice.ToString()),
-                new KeyValuePair<string, string>("Side", req.Side.ToString()),
+                new KeyValuePair<string, string>("Side", req.Side.ToString())
             };
 
-            return Task.Run<SymbolExchanges>(() => base.Post<SymbolExchanges>("/order/Create", parameters,new CancellationToken()));
+            return Task.Run(() => Post<SymbolExchanges>("/order/Create", parameters, new CancellationToken()));
         }
     }
 }

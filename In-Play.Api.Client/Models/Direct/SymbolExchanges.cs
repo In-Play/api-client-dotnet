@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using In_Play.Api.Client.Models.MLB;
 
 namespace In_Play.Api.Client.Models.Direct
 {
@@ -26,7 +22,7 @@ namespace In_Play.Api.Client.Models.Direct
         public string FullName { get; set; }
         public string AwayName { get; set; }
         public string AwayAlias { get; set; }
-        public string HomeName { get; set; }    
+        public string HomeName { get; set; }
         public string HomeAlias { get; set; }
         public StatusEvent StatusEvent { get; set; }
         public StatusExchange StatusExchange { get; set; }
@@ -44,7 +40,7 @@ namespace In_Play.Api.Client.Models.Direct
         public string Comment { get; set; }
         public Category Category { get; set; }
         public List<string> Symbols { get; set; }
- }
+    }
 
     public class SymbolSettings
     {

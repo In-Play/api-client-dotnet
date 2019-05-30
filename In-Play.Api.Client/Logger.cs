@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NLog;
 
 namespace In_Play.Api.Client
 {
-    class Logger
+    internal class Logger
     {
-        private static NLog.ILogger Log { get; set; }
-
         static Logger()
         {
-            Log = NLog.LogManager.GetCurrentClassLogger();
+            Log = LogManager.GetCurrentClassLogger();
         }
+
+        private static ILogger Log { get; }
 
         public static void Error(object msg)
         {

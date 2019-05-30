@@ -50,9 +50,6 @@ var directAccountClient= new AccountClient(new ClientCredentials()
                             Password = "xxxxx",
                         });
 	
-or you can use `Configuration.GetCredentials` helper (DirectApiCredentials.config)	:
-
-var directAccountClient = new AccountClient(Configuration.GetCredentials());
 
 //write `UserInfo` data to console: 
 Console.WriteLine($"{directAccountClient.GetUserInfo().Result.UserInfo.UserName}");

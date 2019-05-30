@@ -18,17 +18,22 @@ namespace In_Play.Api.Client.Internals
             _tokenEndpointUri = tokenEndpointUri;
         }
 
-        public async Task<Tuple<string, TimeSpan>> GetToken(List<KeyValuePair<string, string>> parameters, CancellationToken token)
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        public async Task<Tuple<string, TimeSpan>> GetToken(List<KeyValuePair<string, string>> parameters,
+            CancellationToken token)
         {
             var requestBody = new FormUrlEncodedContent(parameters);
             //set Authorization header
-            _httpClient.DefaultRequestHeaders.Add("DeviceId","ApiClientLibrary");
+            _httpClient.DefaultRequestHeaders.Add("DeviceId", "ApiClientLibrary");
             var response = await _httpClient.PostAsync(_tokenEndpointUri, requestBody, token).ConfigureAwait(false);
             var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             if (!response.IsSuccessStatusCode)
-            {
-                throw new TokenEndpointException($"{(int)response.StatusCode} {response.ReasonPhrase}: {content}");
-            }
+                throw new TokenEndpointException($"{(int) response.StatusCode} {response.ReasonPhrase}: {content}");
 
             try
             {
@@ -47,24 +52,13 @@ namespace In_Play.Api.Client.Internals
             var expiresInJson = body.Property("expires_in");
 
             if (string.IsNullOrWhiteSpace(accessToken))
-            {
                 throw new TokenEndpointException("Token endpoint response does not contain valid \"access_token\"");
-            }
 
             var expiresInSeconds = 0;
-            if (expiresInJson != null)
-            {
-                expiresInSeconds = expiresInJson.Value.Value<int>();
-            }
+            if (expiresInJson != null) expiresInSeconds = expiresInJson.Value.Value<int>();
 
             var expiresIn = TimeSpan.FromSeconds(Convert.ToInt32(expiresInSeconds));
             return new Tuple<string, TimeSpan>(accessToken, expiresIn);
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
         }
 
         ~TokenEndpointHttpClient()
@@ -74,10 +68,7 @@ namespace In_Play.Api.Client.Internals
 
         protected virtual void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                _httpClient.Dispose();
-            }
+            if (disposing) _httpClient.Dispose();
         }
     }
 }

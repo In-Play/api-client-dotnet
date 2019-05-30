@@ -1,38 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace In_Play.Api.Client.Models.MLB
 {
     public class Lineup
     {
-        public LineupTeam HomeTeam;
         public LineupTeam AwayTeam;
+        public LineupTeam HomeTeam;
         public List<Props> Props;
     }
 
     public class LineupTeam
 
     {
-        public string Name;
         public string Alias;
+        public List<LineupTeamItem> Items;
+        public string Name;
         public decimal TotalPoints;
         public decimal TotalScore;
-        public List<LineupTeamItem> Items;
     }
 
     public class LineupTeamItem
     {
-        public int Id;
-        public int EventId;
-        public string Name;
-        public string Status;
-        public decimal EPPG;
-        public decimal Score;
-        public string Position;
         public string Alias;
+        public decimal EPPG;
+        public int EventId;
+        public int Id;
+        public string Name;
+        public string Position;
+        public decimal Score;
+        public string Status;
         public int TeamId;
     }
 
@@ -44,5 +40,4 @@ namespace In_Play.Api.Client.Models.MLB
         public int Index { get; set; }
         public int TeamSize { get; set; }
     }
-
 }

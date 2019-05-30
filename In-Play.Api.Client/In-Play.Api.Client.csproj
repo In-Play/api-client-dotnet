@@ -1,110 +1,36 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{06A26DCE-B608-4000-9EA6-D9FCE59676C1}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>In_Play.Api.Client</RootNamespace>
-    <AssemblyName>In-Play.Api.Client</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.0.2</Version>
+    <Authors>Vlad Petrov</Authors>
+    <AssemblyVersion>1.0.0.2</AssemblyVersion>
+    <FileVersion>1.0.0.2</FileVersion>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>Logo.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>In-Play API key.pfx</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="FileCache, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FileCache.2.0.1\lib\FileCache.dll</HintPath>
+    <Compile Remove="Credentials\Configuration.cs" />
+    <Compile Remove="Credentials\JwtBearerClientAssertionCredentials.cs" />
+    <Compile Remove="Internals\ClientAssertionJwtFactory.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Credentials\Configuration.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="NLog" Version="4.6.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Build.Framework">
+      <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Microsoft.Build.Framework.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Build.Framework" />
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="System.Runtime.Caching">
+      <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Runtime.Caching.dll</HintPath>
     </Reference>
-    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.4.6.3\lib\net45\NLog.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.IO.Compression" />
-    <Reference Include="System.Runtime.Caching" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Clients\B2BClients\BaseClient.cs" />
-    <Compile Include="Clients\B2BClients\MLB\MLBExchangesClient.cs" />
-    <Compile Include="Cache\ICache.cs" />
-    <Compile Include="Cache\InMemoryCache.cs" />
-    <Compile Include="Clients\ClientCredentialsGrantTokenClient.cs" />
-    <Compile Include="Clients\CustomGrantTokenClient.cs" />
-    <Compile Include="Clients\DirectClients\AccountClient.cs" />
-    <Compile Include="Clients\DirectClients\ExchangeClient.cs" />
-    <Compile Include="Clients\ResourceScopedAccessGrantParameters.cs" />
-    <Compile Include="Clients\ResourceScopedAccessGrantTokenClient.cs" />
-    <Compile Include="Credentials\ClientSecretCredentials.cs" />
-    <Compile Include="Credentials\Configuration.cs" />
-    <Compile Include="Credentials\IClientCredentials.cs" />
-    <Compile Include="Clients\DirectClients\BaseClient.cs" />
-    <Compile Include="Internals\MemoryCacheExtensions.cs" />
-    <Compile Include="Internals\ScopeHelper.cs" />
-    <Compile Include="Internals\StringHashExtensions.cs" />
-    <Compile Include="Internals\TokenEndpointHttpClient.cs" />
-    <Compile Include="Logger.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\ClientCredentials.cs" />
-    <Compile Include="Models\Direct\CountriesModel.cs" />
-    <Compile Include="Models\Direct\Order.cs" />
-    <Compile Include="Models\Direct\SymbolExchanges.cs" />
-    <Compile Include="Models\Direct\UserDataModel.cs" />
-    <Compile Include="Models\MLB\Exchange.cs" />
-    <Compile Include="Models\MLB\Lineup.cs" />
-    <Compile Include="Models\Symbol.cs" />
-    <Compile Include="Models\Types.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TokenEndpointException.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Credentials\Configuration.config" />
-    <None Include="In-Play API key.pfx" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Logo.ico" />
-  </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>
