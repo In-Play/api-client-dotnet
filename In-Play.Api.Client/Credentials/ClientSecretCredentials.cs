@@ -15,13 +15,13 @@ namespace In_Play.Api.Client.Credentials
         /// <summary>
         ///     Create new ClientSecretCredentials
         /// </summary>
-        public ClientSecretCredentials(string userName, string password)
+        public ClientSecretCredentials(string userName, string password, string clientId, string clientSecret)
         {
-            _clientId = "DesktopApp";
-            _clientSecret = "in-play";
+            _clientId = clientId;
+            _clientSecret = clientSecret;
             _userName = userName;
             _password = password;
-//            CredentialThumbprint = (clientId + clientSecret).Sha1Hex();
+//           CredentialThumbprint = (clientId + clientSecret).Sha1Hex();
         }
 
         public List<KeyValuePair<string, string>> PostParams => new List<KeyValuePair<string, string>>

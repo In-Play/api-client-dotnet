@@ -26,7 +26,9 @@ namespace testing
             var directAccountClient = new AccountClient(new ClientCredentials
             {
                 UserName = "user",
-                Password = "11111111"
+                Password = "11111111",
+                ClientId = "DesktopApp",
+                ClientSecret = "in-play"
             });
 
           

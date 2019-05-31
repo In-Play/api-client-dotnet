@@ -30,7 +30,9 @@ namespace In_Play.Api.Client.Clients.DirectClients
             var _tokenClient = new ClientCredentialsGrantTokenClient($"{Scheme}{Host}/token",
                 new ClientSecretCredentials(
                     credentials.UserName,
-                    credentials.Password
+                    credentials.Password,
+                    credentials.ClientId,
+                    credentials.ClientSecret
                 ));
 
             Token = _tokenClient.GetTokenAsync(new[] {""}).Result;
